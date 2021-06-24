@@ -1,0 +1,11 @@
+C:\TFS\Grúas\Source\Services.Entitys\bin\Release\Services.Entitys.dll.config
+C:\TFS\Grúas\Source\Services.Entitys\bin\Release\Services.Entitys.dll
+C:\TFS\Grúas\Source\Services.Entitys\bin\Release\Services.Entitys.pdb
+C:\TFS\Grúas\Source\Services.Entitys\bin\Release\EntityFramework.dll
+C:\TFS\Grúas\Source\Services.Entitys\bin\Release\EntityFramework.SqlServer.dll
+C:\TFS\Grúas\Source\Services.Entitys\bin\Release\EntityFramework.xml
+C:\TFS\Grúas\Source\Services.Entitys\bin\Release\EntityFramework.SqlServer.xml
+C:\TFS\Grúas\Source\Services.Entitys\obj\Release\Services.Entitys.csproj.CoreCompileInputs.cache
+C:\TFS\Grúas\Source\Services.Entitys\obj\Release\Services.Entitys.dll
+C:\TFS\Grúas\Source\Services.Entitys\obj\Release\Services.Entitys.pdb
+C:\TFS\Grúas\Source\Services.Entitys\obj\Release\Services.Entitys.csprojResolveAssemblyReference.cache

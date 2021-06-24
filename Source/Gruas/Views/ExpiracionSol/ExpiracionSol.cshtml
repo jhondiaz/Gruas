@@ -1,0 +1,32 @@
+﻿
+@{
+    ViewBag.Title = "ExpiracionSol";
+}
+
+<div class="widget-content nopadding">
+    <div class="form-horizontal">
+        <div class="titleforms">
+            Parámetro Cierre Automático de Solicitudes.
+        </div>
+    </div>
+
+    <div class="row-fluid" style="text-align:center;margin-top:20px;">
+        <label style="font-weight:bold;">Numero de Minutos Configuradas : {{listestday.Horas}}</label>
+    </div>
+
+    <div class="row-fluid" style="padding:15px;padding-bottom:0 !important;padding-top:3px !important;margin-top:15px;">
+        <div class="span12">
+            <div class="span2" style="text-align:left;">
+                <label style="font-weight:bold;">Parámetro En Minutos</label>
+            </div>
+            <div class="span10">
+                <input type="text" class="span12" ng-model="horastope" capitalize onlynumbers placeholder="Minutos" />
+            </div>
+        </div>
+    </div>
+
+    <div class="row-fluid" style="text-align:center;margin-top:20px;">
+        <input style="width:120px;" type="button" class="btn btn-success" ng-click="Actualizar()" name="name" value="Actualizar" />
+    </div>
+</div>
+

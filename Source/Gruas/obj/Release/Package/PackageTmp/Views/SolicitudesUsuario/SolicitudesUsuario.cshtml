@@ -1,0 +1,219 @@
+﻿
+@{
+    ViewBag.Title = "SolicitudesUsuario";
+}
+
+
+<div class="widget-content nopadding">
+    <div class="panel-body no-padding">
+
+        <div style="width:100%;background-color:#003e65;height:25px;margin-bottom:10px;color:white;text-align:center;font-weight:bold;padding-top:5px;">
+            Listado de Usuarios
+        </div>
+
+        <table cellpadding="0" cellspacing="0" border="0" class="table table-bordered" style="max-width:100%;margin-left:auto;margin-right:auto;margin-bottom:10px;" id="editable">
+            <thead>
+                <tr style="background:#31424a">
+                    <th class="center">Nombre Solicitante</th>
+                    <th class="center">Email</th>
+                    <th class="center">T. Documento</th>
+                    <th class="center">N Documento</th>
+                    <th class="center">Entidad</th>
+                    <th class="center">Fecha Solicitud</th>
+                    <th class="center">Validar</th>
+                    <th class="center">Rechazar</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="itm in listUsersSol">
+                    <td>{{itm.firstName}}</td>
+                    <td>{{itm.Email}}</td>
+                    <td>{{itm.TipoDocumento}}</td>
+                    <td>{{itm.NumeroDocumento}}</td>
+                    <td>{{itm.Entidad}}</td>
+                    <td>{{itm.FechaSolicitud | date:'dd-mm-yyyy hh:mm:ss'}}</td>
+                    <td style="text-align:center;"><i class="fa fa-check-circle-o" aria-hidden="true" ng-click="openmod(itm)"></i></td>
+                    <td style="text-align:center;"><i class="fa fa-window-close-o" aria-hidden="true" ng-click="rechazar(itm)"></i></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+
+<div class="modal fade" id="modalreguser" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="width:55%;margin-left:-27%; top:31%;display:none;padding:15px;">
+
+    <div class="widget-box">
+        <div class="widget-content nopadding" style="padding:15px !important;">
+
+            <div class="control-group sep" style="display:flex;">
+                <label class="control-label bl">Tipo Usuario:</label>
+                <div class="controls" style="display:flex;">
+                    <label style="">Agente</label><input style="margin-left:5px" id="rdage" ng-click="rdage()" type="radio" name="name" value="" />
+                    <label style="margin-left:20px;">General</label><input style="margin-left:5px" id="rdgen" ng-click="rdgen()" type="radio" name="name" value="" />
+                </div>
+            </div>
+
+
+            <div class="control-group sep" style="display:flex;">
+                <label class="control-label bl">Nombre y Apellido:</label>
+                <div class="controls">
+                    <input type="text" class="span5" ng-model="filter.firstName" capitalize placeholder="Nombre y Apellido" />
+                </div>
+            </div>
+            <div class="control-group sep" style="display:flex;">
+                <label class="control-label bl">Email:</label>
+                <div class="controls">
+                    <input type="text" class="span5" ng-model="filter.Email" placeholder="Email" />
+                </div>
+            </div>
+
+
+            <!---->
+            <div class="control-group sep" style="display:flex;">
+                <label class="control-label bl">Entidad:</label>
+                <div class="controls">
+                    <input type="text" class="span5" ng-model="filter.Entidad" onlyletters capitalize placeholder="Entidad" />
+                </div>
+            </div>
+            <div class="control-group sep" style="display:flex;">
+                <label class="control-label bl">Telefono:</label>
+                <div class="controls">
+                    <input type="text" class="span5" ng-model="filter.PhoneNumber" onlynumbers placeholder="Telefono" />
+                </div>
+            </div>
+            <div class="control-group sep" style="display:flex;">
+                <label class="control-label bl">Tipo Documento:</label>
+                <div class="controls">
+                    <select class="span5" ng-model="filter.TipoDocumento">
+                        <option value="CC">Cédula Ciudadania</option>
+                        <option value="CE">Cédula Extranjería</option>
+                    </select>
+                </div>
+            </div>
+            <div class="control-group sep" style="display:flex;">
+                <label class="control-label bl">Numero Documento:</label>
+                <div class="controls">
+                    <input type="text" class="span5" ng-model="filter.NumeroDocumento" onlynumbers placeholder="Numero Documento" />
+                </div>
+            </div>
+            <div class="control-group sep" ng-show="filter.Agente == 1 && tpuser == true" style="display:flex;">
+                <label class="control-label bl">Placa Agente:</label>
+                <div class="controls">
+                    <input type="text" class="span5" ng-model="filter.PlacaAgente" capitalize placeholder="Placa Agente" />
+                </div>
+            </div>
+            <div class="control-group sep" style="display:flex;">
+                <label class="control-label bl">Nombre Jefe:</label>
+                <div class="controls">
+                    <input type="text" class="span5" ng-model="filter.NombreJefe" capitalize onlyletters placeholder="Nombre Jefe" />
+                </div>
+            </div>
+            <div class="control-group sep" style="display:flex;">
+                <label class="control-label bl">Telefono Jefe:</label>
+                <div class="controls">
+                    <input type="text" class="span5" ng-model="filter.TelefonoJefe" onlynumbers placeholder="Telefono Jefe" />
+                </div>
+            </div>
+
+            <div class="control-group sep" style="display:flex;">
+                <label class="control-label bl">Tiempo Expiración Contraseña:</label>
+                <div class="controls">
+                    <input type="text" class="span5" ng-model="filter.DiasExpiracion" onlynumbers placeholder="Tiempo Expiración Contraseña" />
+                </div>
+            </div>
+            <!---->
+
+
+
+            <div class="control-group sep" style="display:flex;">
+                <label class="control-label bl">Contraseña :</label>
+                <div class="controls">
+                    <input class="span5" type="password" ng-model="filter.Password" placeholder="Contraseña" />
+                </div>
+            </div>
+            <div class="control-group sep" style="display:flex;">
+                <label class="control-label bl">Confirm Contraseña:</label>
+                <div class="controls">
+                    <input type="password" class="span5" ng-model="filter.ConfirmPassword" placeholder="Confirmar Contraseña" />
+                </div>
+            </div>
+
+            <div class="control-group sep" ng-if="Role == 'ADMIN'" style="display:flex;">
+                <label class="control-label bl">Rol:</label>
+                <div class="controls">
+                    <input type="text" class="span5" ng-model="rol" id="rol" ng-disabled="true" placeholder="Seleccione un Rol" /><span class="add-on" title="Buscar" ng-disabled="isDisabled" ng-click="openmodal()"><i ng-click="openmodal()" ng-disabled="isDisabled" style="cursor:pointer" class="icon-search"></i></span>
+                </div>
+            </div>
+
+            <div class="control-group sep" style="display:flex;">
+                <label class="control-label bl">Activo:</label>
+                <div class="controls">
+                    <input type="checkbox" id="chactv" ng-model="IsActivo" />
+                </div>
+            </div>
+
+            <button type="submit" ng-click="registeruser(filter.Id)" class="btn btn-success">Register</button>
+
+            <button style="float:right;margin-right:15px" type="button" class="btn btn-default" data-dismiss="modal">Salir</button>
+
+
+
+        </div>
+    </div>
+</div>
+
+<div class="modal fade  " id="myModalSubProject" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="width: 60%;  margin-left: -29%; top:45%;display:none;">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-body " style="min-height: 500px;">
+                <div class="panel panel-default" id="panel-inline">
+                    <div class="panel-heading">
+                        <div class="panel-ctrls">
+                        </div>
+                    </div>
+                    <div class="panel-body no-padding">
+                        <table cellpadding="0" cellspacing="0" border="0" class="table table-bordered" style="max-width:100%" id="editable">
+                            <thead>
+                                <tr style="background:#31424a">
+                                    <th class="center">Nombre</th>
+                                    <th class="center">Descripción</th>
+                                    <th style="width:60px;" class="center">Seleccionar</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr ng-repeat="rol in listRoles">
+                                    <td>{{$index + 1}}</td>
+                                    <td>{{rol.Name}}</td>
+                                    <td style="text-align:center;"><i class="icon-tag" ng-click="obtenervalorsubproj(rol.Id,rol.Name)"></i></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    .ser {
+        display: flex !important;
+    }
+
+    .bl {
+        width: 200px;
+    }
+
+    .add-on {
+        font-size: 16px !important;
+    }
+
+    .growl-container.growl-fixed.top-right {
+        z-index: 999999;
+    }
+
+    input[type=text] {
+        height: 14px;
+    }    
+</style>

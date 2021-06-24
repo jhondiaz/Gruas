@@ -1,0 +1,97 @@
+﻿.Bloquear {
+    background: rgba(0,0,0,0.5);
+    width: 100%;
+    height: 100%;
+    margin: 0px;
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    right: 0px;
+    z-index: 1000;
+    cursor: wait;
+    margin: 0px;
+    padding: 0px;
+    display: none;
+}
+
+.paneldelete {
+    background-color: rgb(255, 255, 255);
+    margin: 0 auto;
+    height: 180px;
+    width: 400px;
+    z-index: 99999;
+    opacity: 800;
+    margin-top: 15%;
+    cursor:grab;
+    border-radius:10px;
+    cursor:default;
+}
+
+.paneldeletetitle {
+    height: 25px;
+    width: 100%;
+    background-color: #b50303;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    color: white;
+    padding-top: 5px;
+    font-weight:bold;
+}
+
+.iconhover:hover {
+    cursor:pointer;
+}
+
+.paneldeletecontent {
+    padding-top:30px;
+    padding-left:10px;
+    color:black;
+    display:flex;   
+}
+
+    .paneldeletecontent label {
+        font-size: 15px;
+        font-weight: bold;
+    }
+
+.paneldeletefoo {
+    margin-top: 33px;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    padding: 5px;
+    border-top: 2px solid #BABABA;
+}
+
+.add-on {
+    background-color: #EEEEEE;
+    border: 1px solid #dadada;
+    display: inline-block;
+    font-size: 10px !important;
+    font-weight: normal;
+    height: 12px !important;
+    line-height: 0px;
+    min-width: 16px;
+    padding: 8px 5px;
+    text-align: center;
+    text-shadow: 0 1px 0 #FFFFFF;
+    width: 30px;
+    margin-left:-42px;
+}
+
+.titleforms {
+    width: 100%;
+    background-color: #003e65;
+    height: 25px;
+    margin-bottom: 10px;
+    color: white;
+    text-align: center;
+    font-weight: bold;
+}
+
+input[type="text"]:focus {
+    border: solid 1.4px #1E96DD !important;
+}
+
+select:focus {
+    border: solid 1.4px #1E96DD !important;
+}

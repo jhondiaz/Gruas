@@ -1,0 +1,49 @@
+﻿<!DOCTYPE html>
+<html ng-app="app">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+
+    <link href="~/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/css/bootstrap-responsive.min.css" rel="stylesheet" />
+    <link href="~/css/maruti-style.css" rel="stylesheet" />
+    <link href="~/css/angular-growl.min.css" rel="stylesheet" />
+    <link href="~/Assets/build/loading-bar.css" rel="stylesheet" />
+    <link href="~/font-awesome-4.7.0/css/font-awesome.css" rel="stylesheet" />
+    <link href="~/font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet" />
+    <link href="~/css/utilidades.css" rel="stylesheet" />
+
+    <link href="~/AC/css/easy-autocomplete.css" rel="stylesheet" />
+    <link href="~/AC/css/easy-autocomplete.min.css" rel="stylesheet" />
+
+</head>
+<body style="background-color:#009fe3">
+    @RenderBody()
+
+    @Scripts.Render("~/ng")
+
+    @Scripts.Render("~/app")
+    @Scripts.Render("~/jquery")
+    @Scripts.Render("~/bootstrap")
+    @Scripts.Render("~/misc")
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.0/angular-animate.min.js"></script>
+    <script src="~/Assets/build/loading-bar.js"></script>
+    <script src="~/Assets/jquery/jquery.table2excel.min.js"></script>
+    <script src="~/Assets/jquery/jquery.base64.js"></script>
+    <script src="~/Assets/jquery/tableExport.js"></script>
+    <script src="~/js/utilidades.js"></script>
+
+    <script src="~/AC/jquery.easy-autocomplete.min.js"></script>
+
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBFhDts_xa2UPpnT4OaMr3kiBoYthorJnE"></script>
+
+    @*<script src="~/js/tableexport.min.js"></script>*@
+    
+
+    <script src="~/js/FileSaver.js"></script>
+    <script src="~/js/tableexport.js"></script>
+    <script src="~/js/Blob.js"></script>
+    <script src="~/js/xlsx.core.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,66 @@
+﻿<div class="widget-box">
+    <div class="widget-title">
+        <span class="icon"> <i class="icon-hand-right"></i> </span>
+        <h5>CAJA</h5>
+    </div>
+    <div class="widget-content">
+        <div class="row-fluid">
+            <div class="control-group span11 ">
+                <label class="control-label">Numero de  Identificacion:</label>
+                <div class="controls">
+                    <input type="text" class="span4" placeholder="Identificacion" />
+                    <button class="btn btn-info">BUSCAR</button>
+                </div>
+            </div>
+        </div>
+           <div class="row-fluid">
+               <div class="control-group span11 ">
+                   <label class="control-label">Nombre completo de conductor:</label>
+                   <div class="controls">
+                       <input type="text" class="span4" placeholder="RESULTADO" disabled/>
+                     
+                   </div>
+               </div>
+           </div>
+
+
+    </div>
+</div>
+
+
+
+<div class="widget-box">
+    <div class="widget-title">
+        <span id="btnExport" class="label label-info"><a href="#" onClick="$('#table2excel').tableExport({ type: 'excel', escape: 'false' });" style="color:#efefef">Exportar</a></span>
+        <h5>VALES POR PAGAR</h5>
+
+    </div>
+    <div class="widget-content nopadding">
+        <table class="table table-bordered table-striped" id="table2excel">
+            <thead>
+                <tr class="noExl">
+                    <th> <center>#</center> </th>
+                    <th>CODIGO</th>
+                    <th>FECHA</th>
+                    <th>EMPRESA</th>
+                    <th>VALOR</th>
+                    <th>ESTADO</th>
+
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="Hs in ListaServicioDrivers">
+                    <td><center>{{$index + 1}}</center></td>
+                    <td>{{Hs.Nit}} </td>
+                    <td>{{Hs.Name}}</td>
+                    <td>{{Hs.Placa}}</td>
+                    <td>{{Hs.Mobil}}</td>
+                    <td>{{Hs.Total}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+
+

@@ -1,0 +1,152 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{346EB9E0-752A-41B5-BC81-B09EA8954725}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Services.Entitys</RootNamespace>
+    <AssemblyName>Services.Entitys</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.1\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.1\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.IdentityModel.JsonWebTokens, Version=5.2.4.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.IdentityModel.JsonWebTokens.5.2.4\lib\net451\Microsoft.IdentityModel.JsonWebTokens.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.IdentityModel.Logging, Version=5.2.4.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.IdentityModel.Logging.5.2.4\lib\net451\Microsoft.IdentityModel.Logging.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.IdentityModel.Tokens, Version=5.2.4.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.IdentityModel.Tokens.5.2.4\lib\net451\Microsoft.IdentityModel.Tokens.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=10.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.10.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.IdentityModel.Tokens.Jwt, Version=5.2.4.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.IdentityModel.Tokens.Jwt.5.2.4\lib\net451\System.IdentityModel.Tokens.Jwt.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="DTOs\RespuestaUbicacion.cs" />
+    <Compile Include="DTOs\RespuestaUbicacion2.cs" />
+    <Compile Include="DTOs\TokenDTO.cs" />
+    <Compile Include="DTOs\LoginAutenticationWS.cs" />
+    <Compile Include="DTOs\NovedadSolicitudServicioDTO.cs" />
+    <Compile Include="DTOs\RespuestaSolicitudServicioSDMDTO.cs" />
+    <Compile Include="DTOs\AtencionSolicitudServicioDTO.cs" />
+    <Compile Include="DTOs\WSRegistrarAtParams.cs" />
+    <Compile Include="DTOs\WSRegistrarNovedadParams.cs" />
+    <Compile Include="DTOs\SolicitudServicioDTO.cs" />
+    <Compile Include="DTOs\RespuestaWS.cs" />
+    <Compile Include="DTOs\AspNetMenuRolesParams.cs" />
+    <Compile Include="DTOs\AspNetUsersParams.cs" />
+    <Compile Include="DTOs\detallelist.cs" />
+    <Compile Include="DTOs\CodigosInfraccionesParams.cs" />
+    <Compile Include="DTOs\AspNetMenusParams.cs" />
+    <Compile Include="DTOs\AspNetMenuUsersParams.cs" />
+    <Compile Include="DTOs\AspNetRolesParams.cs" />
+    <Compile Include="DTOs\AspNetUserRolesParmas.cs" />
+    <Compile Include="DTOs\ConfigCierreAutosParams.cs" />
+    <Compile Include="DTOs\DetalleMenusLog.cs" />
+    <Compile Include="DTOs\DetalleProjectUser.cs" />
+    <Compile Include="DTOs\DetalleRolMenu.cs" />
+    <Compile Include="DTOs\EstadosParams.cs" />
+    <Compile Include="DTOs\ReporteTipoXUser.cs" />
+    <Compile Include="DTOs\NumGruasSolParams.cs" />
+    <Compile Include="DTOs\PasswordHistorysParams.cs" />
+    <Compile Include="DTOs\CInmov.cs" />
+    <Compile Include="DTOs\TimeSoli.cs" />
+    <Compile Include="DTOs\TGrua.cs" />
+    <Compile Include="DTOs\ReportSolServices.cs" />
+    <Compile Include="DTOs\SolicitudTvsParams.cs" />
+    <Compile Include="DTOs\TVehiculo.cs" />
+    <Compile Include="DTOs\MCacncelacion.cs" />
+    <Compile Include="DTOs\RequestUsersParams.cs" />
+    <Compile Include="DTOs\NumSolAgentsParams.cs" />
+    <Compile Include="DTOs\ReporteUserRol.cs" />
+    <Compile Include="DTOs\ListaCorreosANSParams.cs" />
+    <Compile Include="DTOs\reportsolagent.cs" />
+    <Compile Include="DTOs\TipoOrdServsParams.cs" />
+    <Compile Include="DTOs\UbicacionGruasParams.cs" />
+    <Compile Include="DTOs\ValuesWS.cs" />
+    <Compile Include="Entities\TipoNovedades.cs" />
+    <Compile Include="Entities\AutTokens.cs" />
+    <Compile Include="Entities\SolicitudesVehiculosAtendidos.cs" />
+    <Compile Include="Entities\SolicitudGruasHistories.cs" />
+    <Compile Include="Entities\SolicitudTVSHistories.cs" />
+    <Compile Include="Entities\UbicacionGruas.cs" />
+    <Compile Include="Entities\C_Inmovilizaciones.cs" />
+    <Compile Include="Entities\ListaCorreosANS.cs" />
+    <Compile Include="Entities\Localidades.cs" />
+    <Compile Include="Entities\SentidoViales.cs" />
+    <Compile Include="Entities\ConfigCierreAutos.cs" />
+    <Compile Include="Entities\Estados.cs" />
+    <Compile Include="Entities\CanGruasSolicitudes.cs" />
+    <Compile Include="Entities\SolicitudTvs.cs" />
+    <Compile Include="Entities\TVehiculoInmovilizars.cs" />
+    <Compile Include="Entities\TipoGruas.cs" />
+    <Compile Include="Entities\TipoOrdServs.cs" />
+    <Compile Include="Entities\T_S_Translados.cs" />
+    <Compile Include="Entities\Causa_Cancelaciones.cs" />
+    <Compile Include="DTOs\SolicitudGruasParams.cs" />
+    <Compile Include="Entities\AspNetMenuRoles.cs" />
+    <Compile Include="Entities\AspNetMenus.cs" />
+    <Compile Include="Entities\AspNetMenuUsers.cs" />
+    <Compile Include="Entities\AspNetRoles.cs" />
+    <Compile Include="Entities\AspNetUserRoles.cs" />
+    <Compile Include="Entities\CodigosInfracciones.cs" />
+    <Compile Include="Entities\NumGruasSol.cs" />
+    <Compile Include="Entities\NumSolAgents.cs" />
+    <Compile Include="Entities\PasswordHistorys.cs" />
+    <Compile Include="Entities\SolicitudGruas.cs" />
+    <Compile Include="Entities\RequestUsers.cs" />
+    <Compile Include="Entities\AspNetUsers.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

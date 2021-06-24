@@ -1,0 +1,14 @@
+C:\TFS\Grúas\Source\Services.DataAccess\bin\Release\Services.DataAccess.dll.config
+C:\TFS\Grúas\Source\Services.DataAccess\bin\Release\Services.DataAccess.dll
+C:\TFS\Grúas\Source\Services.DataAccess\bin\Release\Services.DataAccess.pdb
+C:\TFS\Grúas\Source\Services.DataAccess\bin\Release\EntityFramework.dll
+C:\TFS\Grúas\Source\Services.DataAccess\bin\Release\EntityFramework.SqlServer.dll
+C:\TFS\Grúas\Source\Services.DataAccess\bin\Release\Services.Entitys.dll
+C:\TFS\Grúas\Source\Services.DataAccess\bin\Release\Services.Entitys.pdb
+C:\TFS\Grúas\Source\Services.DataAccess\bin\Release\Services.Entitys.dll.config
+C:\TFS\Grúas\Source\Services.DataAccess\bin\Release\EntityFramework.xml
+C:\TFS\Grúas\Source\Services.DataAccess\bin\Release\EntityFramework.SqlServer.xml
+C:\TFS\Grúas\Source\Services.DataAccess\obj\Release\Services.DataAccess.csprojResolveAssemblyReference.cache
+C:\TFS\Grúas\Source\Services.DataAccess\obj\Release\Services.DataAccess.csproj.CoreCompileInputs.cache
+C:\TFS\Grúas\Source\Services.DataAccess\obj\Release\Services.DataAccess.dll
+C:\TFS\Grúas\Source\Services.DataAccess\obj\Release\Services.DataAccess.pdb

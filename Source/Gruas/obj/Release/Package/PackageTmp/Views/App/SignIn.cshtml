@@ -1,0 +1,183 @@
+﻿
+
+
+
+
+
+<div class="userdata" style="padding:10px;">
+    <div style="border:2px solid #e5e5e5;height:100%;width:100%;border-radius:20px;">
+        <div class="row-fluid" style="margin-top:0px !important;">
+            <div class="span12" style="padding:10px;">
+
+                <div class="control-group" style="display:flex;">
+                    <label class="control-label">Tipo Usuario:</label>
+                    <div class="controls" style="display:flex;">
+                        <label style="">Agente</label><input style="margin-left:5px" id="rdage" ng-click="rdage()" type="radio" name="name" value="" />
+                        <label style="margin-left:20px;">General</label><input style="margin-left:5px" id="rdgen" ng-click="rdgen()" type="radio" name="name" value="" />
+                    </div>
+                </div>
+
+
+                <div class="control-group">
+                    <label class="control-label">Nombre y Apellido:</label>
+                    <div class="controls">
+                        <input type="text" class="span11" ng-model="firstname" capitalize placeholder="Nombre y Apellido" />
+                    </div>
+                </div>
+                <div class="control-group">
+                    <label class="control-label">Email:</label>
+                    <div class="controls">
+                        <input type="email" class="span11" ng-model="Email" placeholder="Email" />
+                    </div>
+                </div>
+
+
+                <!---->
+                <div class="control-group">
+                    <label class="control-label">Entidad:</label>
+                    <div class="controls">
+                        <input type="text" class="span11" ng-model="Entidad" onlyletters capitalize placeholder="Entidad" />
+                    </div>
+                </div>
+                <div class="control-group">
+                    <label class="control-label">Telefono:</label>
+                    <div class="controls">
+                        <input type="text" class="span11" ng-model="Telefono" onlynumbers placeholder="Telefono" />
+                    </div>
+                </div>
+                <div class="control-group">
+                    <label class="control-label">Tipo Documento:</label>
+                    <div class="controls">
+                        <select class="span11" ng-model="TipoDoc">
+                            <option value="CC">Cédula Ciudadania</option>
+                            <option value="CE">Cédula Extranjería</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="control-group">
+                    <label class="control-label">Numero Documento:</label>
+                    <div class="controls">
+                        <input type="text" class="span11" ng-model="NumDoc" onlynumbers placeholder="Numero Documento" />
+                    </div>
+                </div>
+                <div class="control-group" ng-show="tpuser">
+                    <label class="control-label">Placa Agente:</label>
+                    <div class="controls">
+                        <input type="text" class="span11" ng-model="PlacaAgente" capitalize placeholder="Placa Agente" />
+                    </div>
+                </div>
+                <div class="control-group">
+                    <label class="control-label">Nombre Jefe:</label>
+                    <div class="controls">
+                        <input type="text" class="span11" ng-model="NombreJefe" capitalize onlyletters placeholder="Nombre Jefe" />
+                    </div>
+                </div>
+                <div class="control-group">
+                    <label class="control-label">Telefono Jefe:</label>
+                    <div class="controls">
+                        <input type="text" class="span11" ng-model="TelefonoJefe" onlynumbers placeholder="Telefono Jefe" />
+                    </div>
+                </div>
+                <button type="submit" ng-click="RegRequest()" class="btn btn-success">Solicitar</button>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+@*<div id="loading-bar"><div class="bar" style="width: 99.36%;"><div class="peg"></div></div></div>
+    <div id="loading-bar-spinner"><div class="spinner-icon"></div></div>*@
+
+<div id="loginbox" style="height:340px;width:450px;background-color: rgba(255, 255, 255, 0.7);box-shadow: 1px 1px 10px 0px #cecece;border-radius: 5px;position:absolute;top: 0; bottom: 0; left: 0; right: 0;margin: auto;">
+    <div style="width:100%;height:100px;background-color:transparent;border-top-left-radius:5px;border-top-right-radius:5px;box-shadow:0px 2px 10px 0px #cecece;margin-bottom:30px; text-align:center">
+        <img style="height:75px;margin-top:18px;" src="~/img/IconoLof.png" />
+    </div>
+
+    <form id="loginform" class="form-vertical" ng-submit="valDate()">
+
+        <div style="margin-right:auto;margin-left:auto;background-color:transparent;text-align:center;margin-bottom:10px;">
+            <div class="controls">
+                <label>USUARIO</label>
+                <input type="text" ng-model="username" placeholder="USUARIO" style="width:70%;border-radius:20px;" />
+            </div>
+            <div class="controls">
+                <label>CONTRASEÑA</label>
+                <input type="password" ng-model="password" placeholder="CONTRASEÑA" style="width:70%;border-radius:20px;" />
+            </div>
+        </div>
+        <div style="margin-right:auto;margin-left:auto;background-color:transparent;text-align:center;margin-bottom:20px;" ng-show="dislog">
+            <img  src="~/img/30.gif" style="margin-right:auto;margin-left:auto;" />
+            <label style="color:#009fe3">Iniciando Sesión</label>
+        </div>
+
+        <div style="margin-right:auto;margin-left:auto;background-color:transparent;text-align:center;margin-bottom:20px;" ng-show="!dislog">
+            <input type="submit" class="btn btn-success" value="INGRESAR" style="width:120px;border-radius:20px;background:#009fe3 !important;" />
+            <label ng-click="openmode()">¿Has olvidado los datos de la cuenta?</label>
+        </div>
+    </form>
+</div>
+
+
+
+<div class="modal fade" id="modaledit" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="width:30%;margin-left:-16%; top:450px;display:none;padding:15px;">
+    <div class="widget-box">
+        <div class="widget-title">
+            <span class="icon"> <i class="icon-align-justify"></i> </span>
+            <h5>Reiniciar Contraseña</h5>
+        </div>
+
+        <div class="control-group" style="display:flex;">
+            <label class="control-label ffl">Email:</label>
+            <div class="controls">
+                <input type="text" ng-model="mail" placeholder="Email" style="width:100%;margin-left:10px;" />
+            </div>
+        </div>
+        <div style="height:30px;">
+            <input ng-click="changepassbyemail(mail)" class="btn btn-success" value="Restablecer" style="float:right;width:100px;" />
+            <button style="float:right;margin-right:15px" type="button" class="btn btn-default" data-dismiss="modal">Salir</button>
+        </div>
+    </div>
+</div>
+@*<h3>Sign In</h3>
+
+    <form ng-submit="signIn()" class="row">
+
+        <div class="col-md-3">
+            <div class="row">
+                <div class="alert alert-success" ng-show="message == 'ended'"><h4>Due to inactivity, you were logged out automatically.</h4></div>
+            </div>
+            <div class="row"><input class="form-control margin-top-5" type="text" ng-model="username" placeholder="Username" /></div>
+            <div class="row"><input class="form-control margin-top-5" type="password" ng-model="password" placeholder="Password" /></div>
+            <div class="row"><input class="btn btn-primary margin-top-5" type="submit" value="Sign In" /></div>
+        </div>
+
+    </form>
+
+*@
+
+<style>
+    .userdata {
+        width: 354px;
+        height: auto;
+        background-color: white;
+        float: right !important;
+        z-index: 999;
+        margin-top: -25px;
+        margin-right: -140px;
+        border-radius: 20px;
+        display: none;
+        z-index: 99999;
+    }
+
+    .control-label {
+        margin: 0px !important;
+    }
+
+    .controls {
+        margin: 0px !important;
+    }
+
+    #header {
+        height: 100px;
+    }
+</style>

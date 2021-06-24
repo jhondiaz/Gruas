@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parameters>
+  <parameter name="GruasContext-Web.config Connection String" description="GruasContext Cadena de conexión que usa la aplicación en web.config para obtener acceso a la base de datos." defaultValue="server=40.84.155.21;port=3306;database=Gruas;uid=developers;password=admin1.*" tags="SqlConnectionString">
+    <parameterEntry kind="XmlFile" scope="C:\\TFS\\Grúas\\Source\\Gruas\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='GruasContext']/@connectionString" />
+  </parameter>
+</parameters>

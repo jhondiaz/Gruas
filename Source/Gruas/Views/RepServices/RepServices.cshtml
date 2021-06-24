@@ -1,0 +1,233 @@
+﻿
+@{
+    ViewBag.Title = "RepServices";
+}
+
+<div class="widget-content nopadding">
+    <div class="form-horizontal">
+        <div class="titleforms">
+            Busqueda de Solicitudes de Grúas
+        </div>
+
+        <div class="row-fluid row-padding" style="text-align:center;">
+
+            <div class="row-fluid row-padding" style="width:95%;margin: 0 auto;border:1px solid rgba(40, 170, 227, 1)">
+                <div class="titleforms">
+                    Filtros Búsqueda de Solicitudes
+                </div>
+
+                <div class="row-fluid row-padding" style="padding:15px;padding-bottom:5px !important;padding-top:3px !important;">
+                    <div class="span12" style="margin-left:5px;">
+                        <div class="span12" style="text-align:left;">
+                            <label class="lbs">Tipo</label>
+                            <hr style="max-width:95%;" />
+                        </div>
+                        <div class="span3" style="display:flex;">
+                            <label>Causa Inmovilización</label>
+                            <input type="checkbox" ng-click="f1()" name="name" value="" id="chin" />
+                        </div>
+                        <div class="span3" style="display:flex;">
+                            <label>Tipo de Grúa</label>
+                            <input type="checkbox" ng-click="f2()" name="name" value="" id="chtg" />
+                        </div>
+                        <div class="span3" style="display:flex;">
+                            <label>Tipo de Vehículo</label>
+                            <input type="checkbox" ng-click="f3()" name="name" value="" id="chtv" />
+                        </div>
+                        <div class="span3" style="display:flex;">
+                            <label>Motivo Cancelacion</label>
+                            <input type="checkbox" ng-click="f4()" name="name" value="" id="chmc" />
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="row-fluid" style="padding:15px;padding-bottom:0 !important;padding-top:3px !important;">
+                    <div class="span9" style="margin-left:5px;">
+                        <div class="span12" style="text-align:left;">
+                            <label class="lbs">Fecha Solicitud</label>
+                            <hr />
+                        </div>
+                        <div class="span12">
+                            <div class="span6">
+                                <label class="span2 lbs" style="text-align:left;">Desde</label>
+                                <input type="datetime-local" class="span9" id="fechasolini" ng-model="tipos.fini" />
+                            </div>
+                            <div class="span6">
+                                <label class="span2 lbs" style="text-align:left;">Hasta</label>
+                                <input type="datetime-local" class="span9" ng-model="tipos.ffin" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="span3">
+                        <div class="span12" style="text-align:left;">
+                            <label class="lbs">Estado</label>
+                            <hr />
+                        </div>
+                        <div class="span12">
+                            <select class="span12" ng-model="tipos.est">
+                                <option value="">Seleccione</option>
+                                <option value="SOLICITADA">SOLICITADA</option>
+                                <option value="APROBADA">APROBADA</option>
+                                <option value="REASIGNADA">REASIGNADA</option>
+                                <option value="RECHAZADA">RECHAZADA</option>
+                                <option value="CANCELADA">CANCELADA</option>
+                                <option value="CANCELADA AUT">CANCELADA AUT</option>
+                                <option value="ATENDIDA">ATENDIDA</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row-fluid row-padding" style="padding-bottom:5px !important;padding-top:10px !important;margin-left:50px;">
+
+                    <div class="span4"></div>
+                    <div class="span4"></div>
+                    <div class="span2">
+                        <input style="width:120px;" type="button" class="btn btn-success" ng-click="clean()" name="name" value="Limpiar" />
+                    </div>
+                    <div class="span2">
+                        <input style="width:120px;float:right;" type="button" class="btn btn-success" ng-click="Buscar()" name="name" value="Buscar" />
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="row-fluid row-padding" style="width:95%;margin: 0 auto;border:1px solid rgba(40, 170, 227, 1);margin-top:15px;margin-bottom:10px;">
+                <div class="titleforms">
+                    Resultado Búsqueda de Solicitudes
+                </div>
+
+                <div class="cont" style="padding-right:15px;padding-left:15px;margin-bottom:20px;" ng-show="bar == 1">
+                    <div class="row-fluid row-padding" style="text-align:center;border:2px solid #aca7a7;padding-top:25px;padding-bottom:25px;">
+                        <div class="span12" style="margin-left:40px;">
+                            <div class="span3">
+                                <img src="~/img/Escudo-institucional-Colores.png" style="height:85px;" />
+                            </div>
+                            <div class="span6" style="text-align:center;">
+                                <label style="color:#003e65;font-size:20px;font-weight:bold;margin-top:30px;">Reporte de Solicitudes por Agente de Transito</label>
+
+                            </div>
+                            <div class="span3">
+                                <img src="~/img/solgr.png" style="height:85px;" />
+                            </div>
+                        </div>
+
+                        <div class="span12" style="margin-top:20px;">
+                            <hr />
+                        </div>
+
+                        <div class="span12" style="font-size:15px;">
+                            <div class="span6 tl">
+                                <label>Fecha Inicio: {{tipos.fini | date:'dd-MM-yyyy hh:mm a'}}</label>
+                            </div>
+                            <div class="span6 tl">
+                                <label>Fecha Fin: {{tipos.ffin | date:'dd-MM-yyyy hh:mm a'}}</label>
+                            </div>
+                        </div>
+
+                        <div class="span12">
+                            <hr />
+                        </div>
+                        <div id="imp1">
+
+                            <div class="span12" style="margin-top:10px;font-size:15px;text-align:left;padding-left:15px;" ng-show="report.CausaIn.length > 1 || report.TipoGru.length > 1">
+                                <div class="span6 tl" ng-show="report.CausaIn.length > 1">
+                                    <div class="span9"><label>{{report.CausaIn[0].Tipo}}</label></div>
+                                    <div class="span3"><label>Conteo</label></div>
+                                </div>
+
+                                <div class="span6 tl" ng-show="report.TipoGru.length > 1">
+                                    <div class="span9">
+                                        <label>{{report.TipoGru[0].Tipo}}</label>
+                                    </div>
+                                    <div class="span3"><label>Conteo</label></div>
+                                </div>
+                            </div>
+
+                            <div class="span12" style="margin-top:10px;font-size:15px;padding-left:15px;" ng-show="report.CausaIn.length > 1 || report.TipoGru.length > 1">
+                                <div class="span6" ng-show="report.CausaIn.length > 1">
+                                    <div class="span12 tl" ng-repeat="CI in report.CausaIn">
+                                        <div class="span9" style="text-align:left;">{{CI.Name}}</div>
+                                        <div class="span3" style="text-align:center !important;">{{CI.Conteo}}</div>
+                                    </div>
+                                </div>
+                                <div class="span6" ng-show="report.TipoGru.length > 1">
+                                    <div class="span12 tl" ng-repeat="TG in report.TipoGru">
+                                        <div class="span9" style="text-align:left;">{{TG.Name}}</div>
+                                        <div class="span3" style="text-align:center !important;">{{TG.Conteo}}</div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="span12" ng-show="report.CausaIn.length > 1 || report.TipoGru.length > 1">
+                                <hr style="height:2px !important" />
+                            </div>
+
+
+                            <div class="span12" style="margin-top:10px;font-size:15px;text-align:left;padding-left:15px;" ng-show="report.TipoVehi.length > 1 || report.CausaCan.length > 1">
+                                <div class="span6 tl" ng-show="report.TipoVehi.length > 1">
+                                    <div class="span9"><label>{{report.TipoVehi[0].Tipo}}</label></div>
+                                    <div class="span3"><label>Conteo</label></div>
+                                </div>
+
+                                <div class="span6 tl" ng-show="report.CausaCan.length > 1">
+                                    <div class="span9">
+                                        <label>{{report.CausaCan[0].Tipo}}</label>
+                                    </div>
+                                    <div class="span3"><label>Conteo</label></div>
+                                </div>
+                            </div>
+
+                            <div class="span12" style="margin-top:10px;font-size:15px;padding-left:15px;" ng-show="report.TipoVehi.length > 1 || report.CausaCan.length > 1">
+                                <div class="span6" ng-show="report.TipoVehi.length > 1">
+                                    <div class="span12 tl" ng-repeat="CI in report.TipoVehi">
+                                        <div class="span9" style="text-align:left;">{{CI.Name}}</div>
+                                        <div class="span3" style="text-align:center !important;">{{CI.Conteo}}</div>
+                                    </div>
+                                </div>
+                                <div class="span6" ng-show="report.CausaCan.length > 1">
+                                    <div class="span12 tl" ng-repeat="TG in report.CausaCan">
+                                        <div class="span9" style="text-align:left;">{{TG.Name}}</div>
+                                        <div class="span3" style="text-align:center !important;">{{TG.Conteo}}</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row-fluid row-padding" style="text-align:right;margin-left:-15px;margin-bottom:30px;">
+            <img src="~/img/exceli.png" ng-click="excel($event)" />
+
+            <img src="~/img/pdfi.png" ng-click="exportpdf()" id="cmd" />
+        </div>
+    </div>
+</div>
+
+<style>
+    .lbs {
+        font-weight: bold;
+        margin-bottom: 0px !important
+    }
+
+    hr {
+        margin: 0 !important;
+        border-top: 1px solid #d3d3d3 !important;
+    }
+
+    .cont hr {
+        margin: 0 auto;
+        background-color: #003e65;
+        height: 3px;
+        margin-top: 10px;
+    }
+
+    .tl label {
+        font-size: 18px;
+        font-weight: bold;
+        color: #003e65;
+    }
+</style>

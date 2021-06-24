@@ -1,0 +1,92 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27004.2002
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Gruas", "Gruas\Gruas.csproj", "{E2A8C00B-1FB5-4721-BC04-DF1F881B697E}"
+	ProjectSection(ProjectDependencies) = postProject
+		{CDAB2F79-026C-4D82-BD46-F28EF8615837} = {CDAB2F79-026C-4D82-BD46-F28EF8615837}
+		{346EB9E0-752A-41B5-BC81-B09EA8954725} = {346EB9E0-752A-41B5-BC81-B09EA8954725}
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Services.DataAccess", "Services.DataAccess\Services.DataAccess.csproj", "{D267F1BD-A8D2-45D2-BC12-6C807E280B1A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Services.Entitys", "Services.Entitys\Services.Entitys.csproj", "{346EB9E0-752A-41B5-BC81-B09EA8954725}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Services.Bussiness", "Services.Bussiness\Services.Bussiness.csproj", "{CDAB2F79-026C-4D82-BD46-F28EF8615837}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CancelarSolicitudes", "CancelarSolicitudes\CancelarSolicitudes.csproj", "{B5C4358A-99B4-4E6C-9685-419163CEA178}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GruasWS", "GruasWS\GruasWS.csproj", "{1F0E5592-2464-4EAF-A3FF-32A0C92CC594}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WSG", "WSG\WSG.csproj", "{02EFBC63-038F-4D8F-8EF3-33F9640D837E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{E2A8C00B-1FB5-4721-BC04-DF1F881B697E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E2A8C00B-1FB5-4721-BC04-DF1F881B697E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E2A8C00B-1FB5-4721-BC04-DF1F881B697E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E2A8C00B-1FB5-4721-BC04-DF1F881B697E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D267F1BD-A8D2-45D2-BC12-6C807E280B1A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D267F1BD-A8D2-45D2-BC12-6C807E280B1A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D267F1BD-A8D2-45D2-BC12-6C807E280B1A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D267F1BD-A8D2-45D2-BC12-6C807E280B1A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{346EB9E0-752A-41B5-BC81-B09EA8954725}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{346EB9E0-752A-41B5-BC81-B09EA8954725}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{346EB9E0-752A-41B5-BC81-B09EA8954725}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{346EB9E0-752A-41B5-BC81-B09EA8954725}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CDAB2F79-026C-4D82-BD46-F28EF8615837}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CDAB2F79-026C-4D82-BD46-F28EF8615837}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CDAB2F79-026C-4D82-BD46-F28EF8615837}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CDAB2F79-026C-4D82-BD46-F28EF8615837}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B5C4358A-99B4-4E6C-9685-419163CEA178}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B5C4358A-99B4-4E6C-9685-419163CEA178}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B5C4358A-99B4-4E6C-9685-419163CEA178}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B5C4358A-99B4-4E6C-9685-419163CEA178}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1F0E5592-2464-4EAF-A3FF-32A0C92CC594}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1F0E5592-2464-4EAF-A3FF-32A0C92CC594}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1F0E5592-2464-4EAF-A3FF-32A0C92CC594}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1F0E5592-2464-4EAF-A3FF-32A0C92CC594}.Release|Any CPU.Build.0 = Release|Any CPU
+		{02EFBC63-038F-4D8F-8EF3-33F9640D837E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{02EFBC63-038F-4D8F-8EF3-33F9640D837E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{02EFBC63-038F-4D8F-8EF3-33F9640D837E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{02EFBC63-038F-4D8F-8EF3-33F9640D837E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {E3CCCD6F-6716-457C-A3CB-B71C53600693}
+	EndGlobalSection
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 8
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = https://webnet.visualstudio.com/
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = Gruas\\Gruas.csproj
+		SccProjectName1 = Gruas
+		SccLocalPath1 = Gruas
+		SccProjectUniqueName2 = Services.DataAccess\\Services.DataAccess.csproj
+		SccProjectName2 = Services.DataAccess
+		SccLocalPath2 = Services.DataAccess
+		SccProjectUniqueName3 = Services.Entitys\\Services.Entitys.csproj
+		SccProjectName3 = Services.Entitys
+		SccLocalPath3 = Services.Entitys
+		SccProjectUniqueName4 = Services.Bussiness\\Services.Bussiness.csproj
+		SccProjectName4 = Services.Bussiness
+		SccLocalPath4 = Services.Bussiness
+		SccProjectUniqueName5 = CancelarSolicitudes\\CancelarSolicitudes.csproj
+		SccProjectName5 = CancelarSolicitudes
+		SccLocalPath5 = CancelarSolicitudes
+		SccProjectUniqueName6 = GruasWS\\GruasWS.csproj
+		SccProjectName6 = GruasWS
+		SccLocalPath6 = GruasWS
+		SccProjectUniqueName7 = WSG\\WSG.csproj
+		SccProjectName7 = WSG
+		SccLocalPath7 = WSG
+	EndGlobalSection
+EndGlobal

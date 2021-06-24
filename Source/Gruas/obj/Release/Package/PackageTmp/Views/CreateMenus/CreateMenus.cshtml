@@ -1,0 +1,337 @@
+﻿
+@{
+    ViewBag.Title = "CreateMenus";
+}
+
+<div class="widget-content nopadding">
+    <form ng-submit="" class="form-horizontal">
+
+        <div style="width:100%;background-color:#003e65;height:25px;margin-bottom:10px;color:white;text-align:center;font-weight:bold;padding-top:5px;">
+            REGISTRAR MENÚ
+        </div>
+
+        <div class="row-fluid">
+            <div class="span3">
+                <label class="control-label">Tipo de Menú:</label>
+            </div>
+            <div class="span9" style="display:flex;">
+                <label style="">Menú Principal</label><input style="margin-left:5px" id="rdmenu" ng-click="rdmenu()" type="radio" name="name" value="" />
+                <label style="margin-left:20px;">Menú Secundario</label><input style="margin-left:5px" id="rdsubmenu" ng-click="rdsubmenu()" type="radio" name="name" value="" />
+            </div>
+        </div>
+
+        <div class="row-fluid">
+            <div class="span3">
+                <label class="control-label">Nombre Menú:</label>
+            </div>
+            <div class="span9">
+                <input type="text" class="span12" ng-model="name" ng-disabled="isDisabled" placeholder="Nombre Menú" />
+            </div>
+        </div>
+
+        <div class="row-fluid">
+            <div class="span3">
+                <label class="control-label">Orden Menú:</label>
+            </div>
+
+            <div class="span9">
+                <input type="text" class="span12" ng-model="orden" maxlength="50" ng-disabled="isDisabled" placeholder="Orden Menu" onlyletters />
+            </div>
+        </div>
+
+        <div class="row-fluid">
+            <div class="span3">
+                <label class="control-label">Icono:</label>
+            </div>
+            <div class="span9">
+                <input type="text" class="span12" ng-model="icono" ng-disabled="true" placeholder="Icono" /><span class="add-on" title="Buscar" ng-disabled="isDisabled" ng-click="openmodaldevices()"><i ng-click="openmodaldevices()" ng-disabled="isDisabled" style="cursor:pointer" class="icon-search"></i></span>
+            </div>
+        </div>
+
+        <div class="row-fluid submenudis">
+            <div class="span3">
+                <label class="control-label">Menú:</label>
+            </div>
+            <div class="span9">
+                <select class="span12" ng-model="menua" ng-disabled="isDisabled">
+                    <option value="-1">Seleccione</option>
+                    <option ng-repeat="itm in menus" value="{{itm.Id}}">{{itm.Menu}}</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="row-fluid submenudis">
+            <div class="span3">
+                <label class="control-label">Modulo:</label>
+            </div>
+            <div class="span9">
+                <input type="text" class="span12" ng-model="modulo" maxlength="50" ng-disabled="isDisabled" placeholder="Modulo" onlyletters />
+            </div>
+        </div>
+
+        <div class="row-fluid submenudis">
+            <div class="span3">
+                <label class="control-label">Ruta:</label>
+            </div>
+            <div class="span9">
+                <input type="text" class="span12" ng-model="ruta" maxlength="50" ng-disabled="isDisabled" placeholder="Ruta" onlyletters />
+            </div>
+        </div>
+        <div class="row-fluid submenudis">
+            <div class="span3">
+                <label class="control-label">Controlador:</label>
+            </div>
+            <div class="span9">
+                <input type="text" class="span12" ng-model="Controlador" maxlength="50" ng-disabled="isDisabled" placeholder="Controlador" onlyletters />
+            </div>
+        </div>
+
+
+        <div style="margin-right:auto;margin-left:auto;text-align:center">
+            <button ng-click="validar()" ng-disabled="isDisabled" style="width:200px" class="btn btn-success">Guardar</button>
+        </div>
+
+        <div class="modal fade  mm" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="width: 40%; margin: 0 auto;display:none;height:95%;top:10px;left:30%;">
+            <div class="modal-body " style="min-height:95%;padding:0;">
+
+                <div style="width:100%;background-color:#003e65;height:25px;margin-bottom:10px;color:white;text-align:center;font-weight:bold;padding-top:5px;">
+                    SELECCIONAR ICONO
+                </div>
+
+                <div class="row-fluid">
+                    <div class="span3">
+                        <label class="control-label">Buscar:</label>
+                    </div>
+                    <div class="span9">                        
+                        <input type="text" class="span12" id="myInput" ng-model="search" maxlength="50" ng-disabled="isDisabled" capitalize placeholder="Search" onlyletters />
+                    </div>
+                </div>
+
+                <div class="widget-content nopadding">
+                    <div class="panel-body no-padding">
+                        <table cellpadding="0" cellspacing="0" border="0" class="table table-bordered" id="myTable">
+                            <tr class="header">
+                                <td style="text-align:center;font-weight:bold;">Nombre</td>
+                                <td style="text-align:center;font-weight:bold;">Icono</td>
+                                <td style="text-align:center;font-weight:bold;">Seleccionar</td>
+                            </tr>
+                            <tbody>
+                                <tr><td>icon-glass</td><td style="text-align:center"><i class="icon-glass" /></td><td style="text-align:center"><i class="icon-ok" ng-click="selected('icon-glass')" /></td></tr>
+                                <tr><td>icon-music</td><td style="text-align:center"><i class="icon-music" /></td><td style="text-align:center"><i class="icon-ok" ng-click="selected('icon-music')" /></td></tr>
+                                <tr><td>icon-search</td><td style="text-align:center"><i class="icon-search" /></td><td style="text-align:center"><i class="icon-ok" ng-click="selected('icon-search')" /></td></tr>
+                                <tr><td>icon-envelope</td><td style="text-align:center"><i class="icon-envelope" /></td><td style="text-align:center"><i class="icon-ok" ng-click="selected('icon-envelope')" /></td></tr>
+                                <tr><td>icon-heart</td><td style="text-align:center"><i class="icon-heart" /></td><td style="text-align:center"><i class="icon-ok" ng-click="selected('icon-heart')" /></td></tr>
+                                <tr><td>icon-star</td><td style="text-align:center"><i class="icon-star" /></td><td style="text-align:center"><i class="icon-ok" ng-click="selected('icon-star')" /></td></tr>
+                                <tr><td>icon-star-empty</td><td style="text-align:center"><i class="icon-star-empty" /></td><td style="text-align:center"><i class="icon-ok" ng-click="selected('icon-star-empty')" /></td></tr>
+                                <tr><td>icon-user</td><td style="text-align:center"><i class="icon-user" /></td><td style="text-align:center"><i class="icon-ok" ng-click="selected('icon-user')" /></td></tr>
+                                <tr><td>icon-film</td><td style="text-align:center"><i class="icon-film" /></td><td style="text-align:center"><i class="icon-ok" ng-click="selected('icon-film')" /></td></tr>
+                                <tr><td>icon-th-large</td><td style="text-align:center"><i class="icon-th-large" /></td><td style="text-align:center"><i class="icon-ok" ng-click="selected('icon-th-large')" /></td></tr>
+                                <tr><td>icon-th</td><td style="text-align:center"><i class="icon-th" /></td><td style="text-align:center"><i class="icon-ok" ng-click="selected('icon-th')" /></td></tr>
+                                <tr><td>icon-th-list</td><td style="text-align:center"><i class="icon-th-list" /></td><td style="text-align:center"><i class="icon-ok" ng-click="selected('icon-th-list')" /></td></tr>
+                                <tr><td>icon-ok</td><td style="text-align:center"><i class="icon-ok" /></td><td style="text-align:center"><i class="icon-ok" ng-click="selected('icon-ok')" /></td></tr>
+                                <tr><td>icon-remove</td><td style="text-align:center"><i class="icon-remove" /></td><td style="text-align:center"><i class="icon-ok" ng-click="selected('icon-remove')" /></td></tr>
+                                <tr><td>icon-zoom-in</td><td style="text-align:center"><i class="icon-zoom-in" /></td><td style="text-align:center"><i class="icon-ok" ng-click="selected('icon-zoom-in')" /></td></tr>
+                                <tr><td>icon-zoom-out</td><td style="text-align:center"><i class="icon-zoom-out" /></td><td style="text-align:center"><i class="icon-ok" ng-click="selected('icon-zoom-out')" /></td></tr>
+                                <tr><td>icon-off</td><td style="text-align:center"><i class="icon-off" /></td><td style="text-align:center"><i class="icon-ok" ng-click="selected('icon-off')" /></td></tr>
+                                <tr><td>icon-signal</td><td style="text-align:center"><i class="icon-signal" /></td><td style="text-align:center"><i class="icon-ok" ng-click="selected('icon-signal')" /></td></tr>
+                                <tr><td>icon-cog</td><td style="text-align:center"><i class="icon-cog" /></td><td style="text-align:center"><i class="icon-ok" ng-click="selected('icon-cog')" /></td></tr>
+                                <tr><td>icon-trash</td><td style="text-align:center"><i class="icon-trash" /></td><td style="text-align:center"><i class="icon-ok" ng-click="selected('icon-trash')" /></td></tr>
+                                <tr><td>icon-home</td><td style="text-align:center"><i class="icon-home" /></td><td style="text-align:center"><i class="icon-ok" ng-click="selected('icon-home')" /></td></tr>
+                                <tr><td>icon-file</td><td style="text-align:center"><i class="icon-file" /></td><td style="text-align:center"><i class="icon-ok" ng-click="selected('icon-file')" /></td></tr>
+                                <tr><td>icon-time</td><td style="text-align:center"><i class="icon-time" /></td><td style="text-align:center"><i class="icon-ok" ng-click="selected('icon-time')" /></td></tr>
+                                <tr><td>icon-road</td><td style="text-align:center"><i class="icon-road" /></td><td style="text-align:center"><i class="icon-ok" ng-click="selected('icon-road')" /></td></tr>
+                                <tr><td>icon-download-alt</td><td style="text-align:center"><i class="icon-download-alt" /></td><td style="text-align:center"><i class="icon-ok" ng-click="selected('icon-download-alt')" /></td></tr>
+                                <tr><td>icon-download</td><td style="text-align:center"><i class="icon-download" /></td><td style="text-align:center"><i class="icon-ok" ng-click="selected('icon-download')" /></td></tr>
+                                <tr><td>icon-upload</td><td style="text-align:center"><i class="icon-upload" /></td><td style="text-align:center"><i class="icon-ok" ng-click="selected('icon-upload')" /></td></tr>
+                                <tr><td>icon-inbox</td><td style="text-align:center"><i class="icon-inbox" /></td><td style="text-align:center"><i class="icon-ok" ng-click="selected('icon-inbox')" /></td></tr>
+                                <tr><td>icon-play-circle</td><td style="text-align:center"><i class="icon-play-circle" /></td><td style="text-align:center"><i class="icon-ok" ng-click="selected('icon-play-circle')" /></td></tr>
+                                <tr><td>icon-repeat</td><td style="text-align:center"><i class="icon-repeat" /></td><td style="text-align:center"><i class="icon-ok" ng-click="selected('icon-repeat')" /></td></tr>
+                                <tr><td>icon-refresh</td><td style="text-align:center"><i class="icon-refresh" /></td><td style="text-align:center"><i class="icon-ok" ng-click="selected('icon-refresh')" /></td></tr>
+                                <tr><td>icon-list-alt</td><td style="text-align:center"><i class="icon-list-alt" /></td><td style="text-align:center"><i class="icon-ok" ng-click="selected('icon-list-alt')" /></td></tr>
+                                <tr><td>icon-lock</td><td style="text-align:center"><i class="icon-lock" /></td><td style="text-align:center"><i class="icon-ok" ng-click="selected('icon-lock')" /></td></tr>
+                                <tr><td>icon-flag</td><td style="text-align:center"><i class="icon-flag" /></td><td style="text-align:center"><i class="icon-ok" ng-click="selected('icon-flag')" /></td></tr>
+                                <tr><td>icon-headphones</td><td style="text-align:center"><i class="icon-headphones" /></td><td style="text-align:center"><i class="icon-ok" ng-click="selected('icon-headphones')" /></td></tr>
+                                <tr><td>icon-volume-off</td><td style="text-align:center"><i class="icon-volume-off" /></td><td style="text-align:center"><i class="icon-ok" ng-click="selected('icon-volume-off')" /></td></tr>
+                                <tr><td>icon-volume-down</td><td style="text-align:center"><i class="icon-volume-down" /></td><td style="text-align:center"><i class="icon-ok" ng-click="selected('icon-volume-down')" /></td></tr>
+                                <tr><td>icon-volume-up</td><td style="text-align:center"><i class="icon-volume-up" /></td><td style="text-align:center"><i class="icon-ok" ng-click="selected('icon-volume-up')" /></td></tr>
+                                <tr><td>icon-qrcode</td><td style="text-align:center"><i class="icon-qrcode" /></td><td style="text-align:center"><i class="icon-ok" ng-click="selected('icon-qrcode')" /></td></tr>
+                                <tr><td>icon-barcode</td><td style="text-align:center"><i class="icon-barcode" /></td><td style="text-align:center"><i class="icon-ok" ng-click="selected('icon-barcode')" /></td></tr>
+                                <tr><td>icon-tag</td><td style="text-align:center"><i class="icon-tag" /></td><td style="text-align:center"><i class="icon-ok" ng-click="selected('icon-tag')" /></td></tr>
+                                <tr><td>icon-tags</td><td style="text-align:center"><i class="icon-tags" /></td><td style="text-align:center"><i class="icon-ok" ng-click="selected('icon-tags')" /></td></tr>
+                                <tr><td>icon-book</td><td style="text-align:center"><i class="icon-book" /></td><td style="text-align:center"><i class="icon-ok" ng-click="selected('icon-book')" /></td></tr>
+                                <tr><td>icon-bookmark</td><td style="text-align:center"><i class="icon-bookmark" /></td><td style="text-align:center"><i class="icon-ok" ng-click="selected('icon-bookmark')" /></td></tr>
+                                <tr><td>icon-print</td><td style="text-align:center"><i class="icon-print" /></td><td style="text-align:center"><i class="icon-ok" ng-click="selected('icon-print')" /></td></tr>
+                                <tr><td>icon-camera</td><td style="text-align:center"><i class="icon-camera" /></td><td style="text-align:center"><i class="icon-ok" ng-click="selected('icon-camera')" /></td></tr>
+                                <tr><td>icon-font</td><td style="text-align:center"><i class="icon-font" /></td><td style="text-align:center"><i class="icon-ok" ng-click="selected('icon-font')" /></td></tr>
+                                <tr><td>icon-bold</td><td style="text-align:center"><i class="icon-bold" /></td><td style="text-align:center"><i class="icon-ok" ng-click="selected('icon-bold')" /></td></tr>
+                                <tr><td>icon-italic</td><td style="text-align:center"><i class="icon-italic" /></td><td style="text-align:center"><i class="icon-ok" ng-click="selected('icon-italic')" /></td></tr>
+                                <tr><td>icon-text-height</td><td style="text-align:center"><i class="icon-text-height" /></td><td style="text-align:center"><i class="icon-ok" ng-click="selected('icon-text-height')" /></td></tr>
+                                <tr><td>icon-text-width</td><td style="text-align:center"><i class="icon-text-width" /></td><td style="text-align:center"><i class="icon-ok" ng-click="selected('icon-text-width')" /></td></tr>
+                                <tr><td>icon-align-left</td><td style="text-align:center"><i class="icon-align-left" /></td><td style="text-align:center"><i class="icon-ok" ng-click="selected('icon-align-left')" /></td></tr>
+                                <tr><td>icon-align-center</td><td style="text-align:center"><i class="icon-align-center" /></td><td style="text-align:center"><i class="icon-ok" ng-click="selected('icon-align-center')" /></td></tr>
+                                <tr><td>icon-align-right</td><td style="text-align:center"><i class="icon-align-right" /></td><td style="text-align:center"><i class="icon-ok" ng-click="selected('icon-align-right')" /></td></tr>
+                                <tr><td>icon-align-justify</td><td style="text-align:center"><i class="icon-align-justify" /></td><td style="text-align:center"><i class="icon-ok" ng-click="selected('icon-align-justify')" /></td></tr>
+                                <tr><td>icon-list</td><td style="text-align:center"><i class="icon-list" /></td><td style="text-align:center"><i class="icon-ok" ng-click="selected('icon-list')" /></td></tr>
+                                <tr><td>icon-indent-left</td><td style="text-align:center"><i class="icon-indent-left" /></td><td style="text-align:center"><i class="icon-ok" ng-click="selected('icon-indent-left')" /></td></tr>
+                                <tr><td>icon-indent-right</td><td style="text-align:center"><i class="icon-indent-right" /></td><td style="text-align:center"><i class="icon-ok" ng-click="selected('icon-indent-right')" /></td></tr>
+                                <tr><td>icon-facetime-video</td><td style="text-align:center"><i class="icon-facetime-video" /></td><td style="text-align:center"><i class="icon-ok" ng-click="selected('icon-facetime-video')" /></td></tr>
+                                <tr><td>icon-picture</td><td style="text-align:center"><i class="icon-picture" /></td><td style="text-align:center"><i class="icon-ok" ng-click="selected('icon-picture')" /></td></tr>
+                                <tr><td>icon-pencil</td><td style="text-align:center"><i class="icon-pencil" /></td><td style="text-align:center"><i class="icon-ok" ng-click="selected('icon-pencil')" /></td></tr>
+                                <tr><td>icon-map-marker</td><td style="text-align:center"><i class="icon-map-marker" /></td><td style="text-align:center"><i class="icon-ok" ng-click="selected('icon-map-marker')" /></td></tr>
+                                <tr><td>icon-adjust</td><td style="text-align:center"><i class="icon-adjust" /></td><td style="text-align:center"><i class="icon-ok" ng-click="selected('icon-adjust')" /></td></tr>
+                                <tr><td>icon-tint</td><td style="text-align:center"><i class="icon-tint" /></td><td style="text-align:center"><i class="icon-ok" ng-click="selected('icon-tint')" /></td></tr>
+                                <tr><td>icon-edit</td><td style="text-align:center"><i class="icon-edit" /></td><td style="text-align:center"><i class="icon-ok" ng-click="selected('icon-edit')" /></td></tr>
+                                <tr><td>icon-share</td><td style="text-align:center"><i class="icon-share" /></td><td style="text-align:center"><i class="icon-ok" ng-click="selected('icon-share')" /></td></tr>
+                                <tr><td>icon-check</td><td style="text-align:center"><i class="icon-check" /></td><td style="text-align:center"><i class="icon-ok" ng-click="selected('icon-check')" /></td></tr>
+                                <tr><td>icon-move</td><td style="text-align:center"><i class="icon-move" /></td><td style="text-align:center"><i class="icon-ok" ng-click="selected('icon-move')" /></td></tr>
+                                <tr><td>icon-step-backward</td><td style="text-align:center"><i class="icon-step-backward" /></td><td style="text-align:center"><i class="icon-ok" ng-click="selected('icon-step-backward')" /></td></tr>
+                                <tr><td>icon-fast-backward</td><td style="text-align:center"><i class="icon-fast-backward" /></td><td style="text-align:center"><i class="icon-ok" ng-click="selected('icon-fast-backward')" /></td></tr>
+                                <tr><td>icon-backward</td><td style="text-align:center"><i class="icon-backward" /></td><td style="text-align:center"><i class="icon-ok" ng-click="selected('icon-backward')" /></td></tr>
+                                <tr><td>icon-play</td><td style="text-align:center"><i class="icon-play" /></td><td style="text-align:center"><i class="icon-ok" ng-click="selected('icon-play')" /></td></tr>
+                                <tr><td>icon-pause</td><td style="text-align:center"><i class="icon-pause" /></td><td style="text-align:center"><i class="icon-ok" ng-click="selected('icon-pause')" /></td></tr>
+                                <tr><td>icon-stop</td><td style="text-align:center"><i class="icon-stop" /></td><td style="text-align:center"><i class="icon-ok" ng-click="selected('icon-stop')" /></td></tr>
+                                <tr><td>icon-forward</td><td style="text-align:center"><i class="icon-forward" /></td><td style="text-align:center"><i class="icon-ok" ng-click="selected('icon-forward')" /></td></tr>
+                                <tr><td>icon-fast-forward</td><td style="text-align:center"><i class="icon-fast-forward" /></td><td style="text-align:center"><i class="icon-ok" ng-click="selected('icon-fast-forward')" /></td></tr>
+                                <tr><td>icon-step-forward</td><td style="text-align:center"><i class="icon-step-forward" /></td><td style="text-align:center"><i class="icon-ok" ng-click="selected('icon-step-forward')" /></td></tr>
+                                <tr><td>icon-eject</td><td style="text-align:center"><i class="icon-eject" /></td><td style="text-align:center"><i class="icon-ok" ng-click="selected('icon-eject')" /></td></tr>
+                                <tr><td>icon-chevron-left</td><td style="text-align:center"><i class="icon-chevron-left" /></td><td style="text-align:center"><i class="icon-ok" ng-click="selected('icon-chevron-left')" /></td></tr>
+                                <tr><td>icon-chevron-right</td><td style="text-align:center"><i class="icon-chevron-right" /></td><td style="text-align:center"><i class="icon-ok" ng-click="selected('icon-chevron-right')" /></td></tr>
+                                <tr><td>icon-plus-sign</td><td style="text-align:center"><i class="icon-plus-sign" /></td><td style="text-align:center"><i class="icon-ok" ng-click="selected('icon-plus-sign')" /></td></tr>
+                                <tr><td>icon-minus-sign</td><td style="text-align:center"><i class="icon-minus-sign" /></td><td style="text-align:center"><i class="icon-ok" ng-click="selected('icon-minus-sign')" /></td></tr>
+                                <tr><td>icon-remove-sign</td><td style="text-align:center"><i class="icon-remove-sign" /></td><td style="text-align:center"><i class="icon-ok" ng-click="selected('icon-remove-sign')" /></td></tr>
+                                <tr><td>icon-ok-sign</td><td style="text-align:center"><i class="icon-ok-sign" /></td><td style="text-align:center"><i class="icon-ok" ng-click="selected('icon-ok-sign')" /></td></tr>
+                                <tr><td>icon-question-sign</td><td style="text-align:center"><i class="icon-question-sign" /></td><td style="text-align:center"><i class="icon-ok" ng-click="selected('icon-question-sign')" /></td></tr>
+                                <tr><td>icon-info-sign</td><td style="text-align:center"><i class="icon-info-sign" /></td><td style="text-align:center"><i class="icon-ok" ng-click="selected('icon-info-sign')" /></td></tr>
+                                <tr><td>icon-screenshot</td><td style="text-align:center"><i class="icon-screenshot" /></td><td style="text-align:center"><i class="icon-ok" ng-click="selected('icon-screenshot')" /></td></tr>
+                                <tr><td>icon-remove-circle</td><td style="text-align:center"><i class="icon-remove-circle" /></td><td style="text-align:center"><i class="icon-ok" ng-click="selected('icon-remove-circle')" /></td></tr>
+                                <tr><td>icon-ok-circle</td><td style="text-align:center"><i class="icon-ok-circle" /></td><td style="text-align:center"><i class="icon-ok" ng-click="selected('icon-ok-circle')" /></td></tr>
+                                <tr><td>icon-ban-circle</td><td style="text-align:center"><i class="icon-ban-circle" /></td><td style="text-align:center"><i class="icon-ok" ng-click="selected('icon-ban-circle')" /></td></tr>
+                                <tr><td>icon-arrow-left</td><td style="text-align:center"><i class="icon-arrow-left" /></td><td style="text-align:center"><i class="icon-ok" ng-click="selected('icon-arrow-left')" /></td></tr>
+                                <tr><td>icon-arrow-right</td><td style="text-align:center"><i class="icon-arrow-right" /></td><td style="text-align:center"><i class="icon-ok" ng-click="selected('icon-arrow-right')" /></td></tr>
+                                <tr><td>icon-arrow-up</td><td style="text-align:center"><i class="icon-arrow-up" /></td><td style="text-align:center"><i class="icon-ok" ng-click="selected('icon-arrow-up')" /></td></tr>
+                                <tr><td>icon-arrow-down</td><td style="text-align:center"><i class="icon-arrow-down" /></td><td style="text-align:center"><i class="icon-ok" ng-click="selected('icon-arrow-down')" /></td></tr>
+                                <tr><td>icon-share-alt</td><td style="text-align:center"><i class="icon-share-alt" /></td><td style="text-align:center"><i class="icon-ok" ng-click="selected('icon-share-alt')" /></td></tr>
+                                <tr><td>icon-resize-full</td><td style="text-align:center"><i class="icon-resize-full" /></td><td style="text-align:center"><i class="icon-ok" ng-click="selected('icon-resize-full')" /></td></tr>
+                                <tr><td>icon-resize-small</td><td style="text-align:center"><i class="icon-resize-small" /></td><td style="text-align:center"><i class="icon-ok" ng-click="selected('icon-resize-small')" /></td></tr>
+                                <tr><td>icon-plus</td><td style="text-align:center"><i class="icon-plus" /></td><td style="text-align:center"><i class="icon-ok" ng-click="selected('icon-plus')" /></td></tr>
+                                <tr><td>icon-minus</td><td style="text-align:center"><i class="icon-minus" /></td><td style="text-align:center"><i class="icon-ok" ng-click="selected('icon-minus')" /></td></tr>
+                                <tr><td>icon-asterisk</td><td style="text-align:center"><i class="icon-asterisk" /></td><td style="text-align:center"><i class="icon-ok" ng-click="selected('icon-asterisk')" /></td></tr>
+                                <tr><td>icon-exclamation-sign</td><td style="text-align:center"><i class="icon-exclamation-sign" /></td><td style="text-align:center"><i class="icon-ok" ng-click="selected('icon-exclamation-sign')" /></td></tr>
+                                <tr><td>icon-gift</td><td style="text-align:center"><i class="icon-gift" /></td><td style="text-align:center"><i class="icon-ok" ng-click="selected('icon-gift')" /></td></tr>
+                                <tr><td>icon-leaf</td><td style="text-align:center"><i class="icon-leaf" /></td><td style="text-align:center"><i class="icon-ok" ng-click="selected('icon-leaf')" /></td></tr>
+                                <tr><td>icon-fire</td><td style="text-align:center"><i class="icon-fire" /></td><td style="text-align:center"><i class="icon-ok" ng-click="selected('icon-fire')" /></td></tr>
+                                <tr><td>icon-eye-open</td><td style="text-align:center"><i class="icon-eye-open" /></td><td style="text-align:center"><i class="icon-ok" ng-click="selected('icon-eye-open')" /></td></tr>
+                                <tr><td>icon-eye-close</td><td style="text-align:center"><i class="icon-eye-close" /></td><td style="text-align:center"><i class="icon-ok" ng-click="selected('icon-eye-close')" /></td></tr>
+                                <tr><td>icon-warning-sign</td><td style="text-align:center"><i class="icon-warning-sign" /></td><td style="text-align:center"><i class="icon-ok" ng-click="selected('icon-warning-sign')" /></td></tr>
+                                <tr><td>icon-plane</td><td style="text-align:center"><i class="icon-plane" /></td><td style="text-align:center"><i class="icon-ok" ng-click="selected('icon-plane')" /></td></tr>
+                                <tr><td>icon-calendar</td><td style="text-align:center"><i class="icon-calendar" /></td><td style="text-align:center"><i class="icon-ok" ng-click="selected('icon-calendar')" /></td></tr>
+                                <tr><td>icon-random</td><td style="text-align:center"><i class="icon-random" /></td><td style="text-align:center"><i class="icon-ok" ng-click="selected('icon-random')" /></td></tr>
+                                <tr><td>icon-comment</td><td style="text-align:center"><i class="icon-comment" /></td><td style="text-align:center"><i class="icon-ok" ng-click="selected('icon-comment')" /></td></tr>
+                                <tr><td>icon-magnet</td><td style="text-align:center"><i class="icon-magnet" /></td><td style="text-align:center"><i class="icon-ok" ng-click="selected('icon-magnet')" /></td></tr>
+                                <tr><td>icon-chevron-up</td><td style="text-align:center"><i class="icon-chevron-up" /></td><td style="text-align:center"><i class="icon-ok" ng-click="selected('icon-chevron-up')" /></td></tr>
+                                <tr><td>icon-chevron-down</td><td style="text-align:center"><i class="icon-chevron-down" /></td><td style="text-align:center"><i class="icon-ok" ng-click="selected('icon-chevron-down')" /></td></tr>
+                                <tr><td>icon-retweet</td><td style="text-align:center"><i class="icon-retweet" /></td><td style="text-align:center"><i class="icon-ok" ng-click="selected('icon-retweet')" /></td></tr>
+                                <tr><td>icon-shopping-cart</td><td style="text-align:center"><i class="icon-shopping-cart" /></td><td style="text-align:center"><i class="icon-ok" ng-click="selected('icon-shopping-cart')" /></td></tr>
+                                <tr><td>icon-folder-close</td><td style="text-align:center"><i class="icon-folder-close" /></td><td style="text-align:center"><i class="icon-ok" ng-click="selected('icon-folder-close')" /></td></tr>
+                                <tr><td>icon-folder-open</td><td style="text-align:center"><i class="icon-folder-open" /></td><td style="text-align:center"><i class="icon-ok" ng-click="selected('icon-folder-open')" /></td></tr>
+                                <tr><td>icon-resize-vertical</td><td style="text-align:center"><i class="icon-resize-vertical" /></td><td style="text-align:center"><i class="icon-ok" ng-click="selected('icon-resize-vertical')" /></td></tr>
+                                <tr><td>icon-resize-horizontal</td><td style="text-align:center"><i class="icon-resize-horizontal" /></td><td style="text-align:center"><i class="icon-ok" ng-click="selected('icon-resize-horizontal')" /></td></tr>
+                                <tr><td>icon-hdd</td><td style="text-align:center"><i class="icon-hdd" /></td><td style="text-align:center"><i class="icon-ok" ng-click="selected('icon-hdd')" /></td></tr>
+                                <tr><td>icon-bullhorn</td><td style="text-align:center"><i class="icon-bullhorn" /></td><td style="text-align:center"><i class="icon-ok" ng-click="selected('icon-bullhorn')" /></td></tr>
+                                <tr><td>icon-bell</td><td style="text-align:center"><i class="icon-bell" /></td><td style="text-align:center"><i class="icon-ok" ng-click="selected('icon-bell')" /></td></tr>
+                                <tr><td>icon-certificate</td><td style="text-align:center"><i class="icon-certificate" /></td><td style="text-align:center"><i class="icon-ok" ng-click="selected('icon-certificate')" /></td></tr>
+                                <tr><td>icon-thumbs-up</td><td style="text-align:center"><i class="icon-thumbs-up" /></td><td style="text-align:center"><i class="icon-ok" ng-click="selected('icon-thumbs-up')" /></td></tr>
+                                <tr><td>icon-thumbs-down</td><td style="text-align:center"><i class="icon-thumbs-down" /></td><td style="text-align:center"><i class="icon-ok" ng-click="selected('icon-thumbs-down')" /></td></tr>
+                                <tr><td>icon-hand-right</td><td style="text-align:center"><i class="icon-hand-right" /></td><td style="text-align:center"><i class="icon-ok" ng-click="selected('icon-hand-right')" /></td></tr>
+                                <tr><td>icon-hand-left</td><td style="text-align:center"><i class="icon-hand-left" /></td><td style="text-align:center"><i class="icon-ok" ng-click="selected('icon-hand-left')" /></td></tr>
+                                <tr><td>icon-hand-up</td><td style="text-align:center"><i class="icon-hand-up" /></td><td style="text-align:center"><i class="icon-ok" ng-click="selected('icon-hand-up')" /></td></tr>
+                                <tr><td>icon-hand-down</td><td style="text-align:center"><i class="icon-hand-down" /></td><td style="text-align:center"><i class="icon-ok" ng-click="selected('icon-hand-down')" /></td></tr>
+                                <tr><td>icon-circle-arrow-right</td><td style="text-align:center"><i class="icon-circle-arrow-right" /></td><td style="text-align:center"><i class="icon-ok" ng-click="selected('icon-circle-arrow-right')" /></td></tr>
+                                <tr><td>icon-circle-arrow-left</td><td style="text-align:center"><i class="icon-circle-arrow-left" /></td><td style="text-align:center"><i class="icon-ok" ng-click="selected('icon-circle-arrow-left')" /></td></tr>
+                                <tr><td>icon-circle-arrow-up</td><td style="text-align:center"><i class="icon-circle-arrow-up" /></td><td style="text-align:center"><i class="icon-ok" ng-click="selected('icon-circle-arrow-up')" /></td></tr>
+                                <tr><td>icon-circle-arrow-down</td><td style="text-align:center"><i class="icon-circle-arrow-down" /></td><td style="text-align:center"><i class="icon-ok" ng-click="selected('icon-circle-arrow-down')" /></td></tr>
+                                <tr><td>icon-globe</td><td style="text-align:center"><i class="icon-globe" /></td><td style="text-align:center"><i class="icon-ok" ng-click="selected('icon-globe')" /></td></tr>
+                                <tr><td>icon-wrench</td><td style="text-align:center"><i class="icon-wrench" /></td><td style="text-align:center"><i class="icon-ok" ng-click="selected('icon-wrench')" /></td></tr>
+                                <tr><td>icon-tasks</td><td style="text-align:center"><i class="icon-tasks" /></td><td style="text-align:center"><i class="icon-ok" ng-click="selected('icon-tasks')" /></td></tr>
+                                <tr><td>icon-filter</td><td style="text-align:center"><i class="icon-filter" /></td><td style="text-align:center"><i class="icon-ok" ng-click="selected('icon-filter')" /></td></tr>
+                                <tr><td>icon-briefcase</td><td style="text-align:center"><i class="icon-briefcase" /></td><td style="text-align:center"><i class="icon-ok" ng-click="selected('icon-briefcase')" /></td></tr>
+                                <tr><td>icon-fullscreen</td><td style="text-align:center"><i class="icon-fullscreen" /></td><td style="text-align:center"><i class="icon-ok" ng-click="selected('icon-fullscreen')" /></td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </form>
+
+
+    @*<div class="widget-box">
+        <div class="widget-title">
+            <span class="icon"> <i class="icon-align-justify"></i> </span>
+            <h5>Listado de Menús</h5>
+        </div>*@
+
+    <div style="width:100%;background-color:#003e65;height:25px;margin-bottom:10px;color:white;text-align:center;font-weight:bold;padding-top:5px;margin-top:50px;">
+        Listado de Menús
+    </div>
+
+    <table cellpadding="0" cellspacing="0" border="0" class="table table-bordered" style="max-width:100%;margin-left:auto;margin-right:auto;margin-bottom:10px;" id="editable">
+        <thead>
+            <tr style="background:#31424a">
+                <th class="center">TIPO</th>
+                <th class="center">MENÚ</th>
+                <th class="center">ORDEN</th>
+                <th class="center">ICONO</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="itm in menusall">
+                <td style="text-align:center" ng-show="itm.Menu != null">P</td>
+                <td style="text-align:center" ng-show="itm.SubMenu != null">S</td>
+                <td>{{itm.Menu}}{{itm.SubMenu}}</td>
+                <td style="text-align:center">{{itm.OrderMenu}}</td>
+                <td style="text-align:center"><i class="{{itm.Icon}}" /></td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+
+<style>
+    .submenudis {
+        display: none;
+    }
+
+    i {
+        cursor: pointer;
+    }
+
+
+    .form-horizontal .controls {
+        margin-left: 0px !important;
+    }
+
+
+    #myTable {
+        border-collapse: collapse;
+        width: 100%;
+        border: 1px solid #ddd;
+        font-size: 18px;
+    }
+
+        #myTable th, #myTable td {
+            text-align: left;
+            padding: 12px;
+        }
+
+        #myTable tr {
+            border-bottom: 1px solid #ddd;
+        }
+
+            #myTable tr.header, #myTable tr:hover {
+                background-color: #f1f1f1;
+            }
+</style>
+
+
